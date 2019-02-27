@@ -1,0 +1,11 @@
+#!/bin/bash
+
+which cargo-watch &> /dev/null || exit 1
+
+ROOT="$( cd $( dirname $0 )/..; pwd )"
+cd $ROOT
+
+cargo watch -c \
+  -x run       \
+  -w ./src     \
+  -w ./Cargo.toml
